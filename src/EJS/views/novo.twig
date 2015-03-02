@@ -1,0 +1,48 @@
+{% extends "layout.twig" %}
+{% block local %}Cadastrar novo produto{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        Cadastrar Produto
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>NOME</th>
+                <th>DESCRIÇÃO</th>
+                <th>VALOR</th>
+                <th>CATEGORIA</th>
+                <th>TAGs</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <form action="{{ path('inserir') }}" method="post">
+                    <td><input type="text" name="nome"></td>
+                    <td><input type="text" name="descricao"></td>
+                    <td><input type="text" name="valor" size="10"></td>
+
+                    <td>
+                        <select class="form-control" name="categoria_produto" id="categoria_produto">
+                            {% for categoria in categorias %}
+                                <option value={{ categoria.id }}>{{ categoria.nome_categoria }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+
+                    <td>
+                        <select name="tags_produto[]" size="3" multiple="multiple" tabindex="1" style="width: 130px;">
+                            {% for tag in tags %}
+                                <option value={{ tag.id }}>{{ tag.nome_tag }}</option>
+                            {% endfor %}
+                        </select>
+                    <td>
+                        <input type="hidden" id="id" name="id" />
+                        <a href=""><button class="btn btn-success " type="submit" name="cadastrar" >Cadastrar</button></a>
+                    </td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+        <a href="{{ path('index') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
+    </div><!-- /jumbotron -->
+{% endblock %}

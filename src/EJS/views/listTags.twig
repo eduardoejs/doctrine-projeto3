@@ -1,0 +1,33 @@
+{% extends "layout.twig" %}
+{% block local %}Tags {% endblock %}
+{% block content %}
+    <div class="jumbotron">
+
+        <a href="{{ url('novo') }}"><button class="btn btn-success " type="submit" name="cadastra" >Cadastar Novo Produto</button></a>
+        <a href="{{ url('categorias') }}"><button class="btn btn-info " type="submit" name="listCategorias" >Lista de Categorias</button></a>
+        <a href="{{ url('tags') }}"><button class="btn btn-info " type="submit" name="listCategorias" >Lista de Tags</button></a>
+        <a href="{{ url('index') }}"><button class="btn btn-info " type="submit" name="listCategorias" >Lista de Produtos</button></a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>AÇÕES</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for tag in tags %}
+                <tr>
+                    <td>{{ tag.id }}</td>
+                    <td>{{ tag.nome_tag }}</td>
+
+                    <td style="width: 10px;"><a href="#"><button class="btn btn-primary btn-xs disabled" type="submit" name="visualizar" >Visualizar</button></a></td>
+                    <td style="width: 10px;"><a href="#"><button class="btn btn-warning btn-xs disabled" type="submit" name="alterar" >Alterar</button></a></td>
+                    <td style="width: 10px;"><a href="#"><button class="btn btn-danger btn-xs disabled" type="submit" name="deletar">Deletar</button></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div><!-- /jumbotron -->
+{% endblock %}
