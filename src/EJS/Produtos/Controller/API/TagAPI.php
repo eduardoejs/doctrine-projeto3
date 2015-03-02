@@ -16,7 +16,7 @@ class TagAPI implements ControllerProviderInterface{
         $tagControllerAPI = $app['controllers_factory'];
 
         //retorna lista de tags
-        $app->get('/t', function () use ($app) {
+        $app->get('/', function () use ($app) {
             $data = $app['tagService']->listTags();
             return $app->json($data);
         })->bind('API-ListTags');
