@@ -25,53 +25,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.php">
+      <file leaf-file-name="ProdutoService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="600">
-              <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TagController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Controller/Frontend/TagController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="435">
-              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoriaAPI.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Controller/API/CategoriaAPI.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-30.166666" vertical-offset="296" max-vertical-offset="1335">
-              <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProdutoAPI.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Controller/API/ProdutoAPI.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.060402684" vertical-offset="180" max-vertical-offset="1275">
-              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TagAPI.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Controller/API/TagAPI.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="20.208334" vertical-offset="620" max-vertical-offset="1365">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state vertical-scroll-proportion="-5.5" vertical-offset="783" max-vertical-offset="2430">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
-                <element signature="e#47#75#0#PHP" expanded="true" />
+                <element signature="e#40#71#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="novo.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/EJS/views/novo.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7100671" vertical-offset="26" max-vertical-offset="795">
+              <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProdutoRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Entity/ProdutoRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.416666" vertical-offset="41" max-vertical-offset="810">
+              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+              <folding>
+                <marker date="1425404853718" expanded="true" signature="487:551" placeholder="SELECT p FRO..EJS..." />
+                <marker date="1425404853718" expanded="true" signature="736:812" placeholder="SELECT p FRO..EJS..." />
+                <marker date="1425404853718" expanded="true" signature="1074:1117" placeholder="SELECT p FRO..EJS..." />
               </folding>
             </state>
           </provider>
@@ -94,6 +78,8 @@
         <option value="$PROJECT_DIR$/src/EJS/Produtos/Controller/Frontend/TagController.php" />
         <option value="$PROJECT_DIR$/src/EJS/Produtos/Controller/Frontend/ProdutoController.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
+        <option value="$PROJECT_DIR$/src/EJS/Produtos/Entity/ProdutoRepository.php" />
+        <option value="$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php" />
       </list>
     </option>
   </component>
@@ -169,6 +155,10 @@
               <option name="myItemId" value="EJS" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -189,6 +179,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Produtos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projeto01" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctrine-projeto3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EJS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Produtos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -563,13 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJS/views/novo.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.125" vertical-offset="0" max-vertical-offset="795">
-          <caret line="37" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EJS/views/layout.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="585">
@@ -640,24 +653,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Entity/ProdutoRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55801105" vertical-offset="282" max-vertical-offset="825">
-          <caret line="39" column="101" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.3812155" vertical-offset="0" max-vertical-offset="1200">
           <caret line="50" column="42" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="2595">
-          <caret line="4" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -714,7 +713,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Controller/API/TagAPI.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="20.208334" vertical-offset="620" max-vertical-offset="1365">
+        <state vertical-scroll-proportion="-0.6510067" vertical-offset="620" max-vertical-offset="1365">
           <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding>
             <element signature="e#47#75#0#PHP" expanded="true" />
@@ -748,8 +747,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Controller/API/ProdutoAPI.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.060402684" vertical-offset="180" max-vertical-offset="1275">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.42281878" vertical-offset="180" max-vertical-offset="1275">
+          <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Entity/ProdutoRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.416666" vertical-offset="41" max-vertical-offset="810">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <folding>
+            <marker date="1425404853718" expanded="true" signature="487:551" placeholder="SELECT p FRO..EJS..." />
+            <marker date="1425404853718" expanded="true" signature="736:812" placeholder="SELECT p FRO..EJS..." />
+            <marker date="1425404853718" expanded="true" signature="1074:1117" placeholder="SELECT p FRO..EJS..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5" vertical-offset="783" max-vertical-offset="2430">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJS/views/novo.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7100671" vertical-offset="26" max-vertical-offset="795">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
           <folding />
         </state>
       </provider>

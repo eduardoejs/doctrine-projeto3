@@ -36,8 +36,8 @@ class ProdutoRepository extends EntityRepository{
     }
 
     public function paginarRegistros($qtdePaginas, $paginaAtual){
-        //$dql = "SELECT p FROM EJS\Produtos\Entity\Produto p";
-        $dql = "select p, c FROM EJS\Produtos\Entity\Produto p join p.categoria c order by p.nome asc";
+        $dql = "SELECT p FROM EJS\Produtos\Entity\Produto p";
+        //$dql = "select p, c FROM EJS\Produtos\Entity\Produto p join p.categoria c order by p.nome asc";
         $resultQuery = $this
                         ->getEntityManager()
                         ->createQuery($dql)

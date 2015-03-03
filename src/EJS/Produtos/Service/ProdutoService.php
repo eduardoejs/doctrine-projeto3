@@ -59,11 +59,6 @@ class ProdutoService {
         $produtoEntity->setDescricao($data['descricao']);
         $produtoEntity->setValor($data['valor']);
 
-        if(!isset($data['categoria_produto']))
-            return ["STATUS" => "Você deve informar uma categoria para o produto"];
-
-        if(!isset($data['tags_produto']))
-            return ["STATUS" => "Erro: Você deve informar as TAGs"];
 
         if(is_numeric($data['categoria_produto'])){
             $categoria = $this->em->getRepository("EJS\Produtos\Entity\Categoria")->findOneBy(['id' => $data['categoria_produto']]);
@@ -108,12 +103,6 @@ class ProdutoService {
         $produto->setNome($data['nome']);
         $produto->setDescricao($data['descricao']);
         $produto->setValor($data['valor']);
-
-        if(!isset($data['categoria_produto']))
-            return ["STATUS" => "Você deve informar uma categoria para o produto"];
-
-        if(!isset($data['tags_produto']))
-            return ["STATUS" => "Erro: Você deve informar as TAGs"];
 
         if(is_numeric($data['categoria_produto'])){
             $categoria = $this->em->getRepository("EJS\Produtos\Entity\Categoria")->findOneBy(['id' => $data['categoria_produto']]);
