@@ -16,13 +16,13 @@ class TagAPI implements ControllerProviderInterface{
         $tagControllerAPI = $app['controllers_factory'];
 
         //retorna lista de tags
-        $app->get('/', function () use ($app) {
+        $tagControllerAPI->get('/', function () use ($app) {
             $data = $app['tagService']->listTags();
             return $app->json($data);
         })->bind('API-ListTags');
 
         //retorna uma tag
-        $app->get('/{id}', function ($id) use ($app) {
+        $tagControllerAPI->get('/{id}', function ($id) use ($app) {
             $tag = new Tag();
             $data['nome_tag'] = $tag->getNome();
 
@@ -32,7 +32,7 @@ class TagAPI implements ControllerProviderInterface{
         })->bind('API-ListTagsID');
 
         //insert tag
-        $app->post('/', function (Request $request) use ($app) {
+        $tagControllerAPI->post('/', function (Request $request) use ($app) {
 
             $data = $request->request->all();
 
@@ -51,7 +51,7 @@ class TagAPI implements ControllerProviderInterface{
         })->bind('API-InsertTags');
 
         //update tag
-        $app->put('/{id}', function (Request $request, $id) use ($app) {
+        $tagControllerAPI->put('/{id}', function (Request $request, $id) use ($app) {
             $data = $request->request->all();
             $data['id'] =  $id;
             $data['nome_tag'] = $request->request->get('nome_tag');
@@ -68,7 +68,7 @@ class TagAPI implements ControllerProviderInterface{
         })->bind('API-UpdateTags');
 
         //delete tag
-        $app->delete('/{id}', function ( $id) use ($app) {
+        $tagControllerAPI->delete('/{id}', function ( $id) use ($app) {
 
             if ($app['tagService']->deleteTag($id)) {
                 return $app->json([

@@ -36,8 +36,8 @@ $app->mount('/categorias', new CategoriaController());
 $app->mount('/tags', new TagController());
 
 //APIs REST
-$app->mount('/api/produtos', new ProdutoAPI());
-$app->mount('/api/categorias', new CategoriaAPI());
-$app->mount('/api/tags', new TagAPI());
+$app->mount('/api/produto', new ProdutoAPI());
+$app->mount('/api/categoria', new CategoriaAPI());
+$app->mount('/api/tag', new TagAPI());
 
 $app->run();

@@ -13,7 +13,7 @@ class TagController implements ControllerProviderInterface{
 
         /////////////////////////////////////////////////////////////////////
         //Rota para a lista de tags
-        $app->get('/tags', function() use($app){
+        $tagController->get('/', function() use($app){
             $tags = $app['tagService']->listTags();
             return $app['twig']->render('listTags.twig',['tags' => $tags]);
         })->bind('tags');

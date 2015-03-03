@@ -16,13 +16,13 @@ class CategoriaAPI implements ControllerProviderInterface{
         $categoriaControllerAPI = $app['controllers_factory'];
 
         //retorna lista de categorias
-        $app->get('/', function () use ($app) {
+        $categoriaControllerAPI->get('/', function () use ($app) {
             $data = $app['categoriaService']->listCategorias();
             return $app->json($data);
         })->bind('API-ListCategorias');
 
         //retorna uma categoria
-        $app->get('/{id}', function ($id) use ($app) {
+        $categoriaControllerAPI->get('/{id}', function ($id) use ($app) {
             $categoria = new Categoria();
             $data['nome_categoria'] = $categoria->getNomeCategoria();
 
@@ -32,7 +32,7 @@ class CategoriaAPI implements ControllerProviderInterface{
         })->bind('API-ListCategoriasID');
 
         //insert categoria
-        $app->post('/', function (Request $request) use ($app) {
+        $categoriaControllerAPI->post('/', function (Request $request) use ($app) {
 
             $data = $request->request->all();
 
@@ -51,7 +51,7 @@ class CategoriaAPI implements ControllerProviderInterface{
         })->bind('API-InsertCategorias');
 
         //update categoria
-        $app->put('/{id}', function (Request $request, $id) use ($app) {
+        $categoriaControllerAPI->put('/{id}', function (Request $request, $id) use ($app) {
             $data = $request->request->all();
             $data['id'] =  $id;
             $data['nome_categoria'] = $request->request->get('nome_categoria');
@@ -69,7 +69,7 @@ class CategoriaAPI implements ControllerProviderInterface{
         })->bind('API-UpdateCategorias');
 
         //delete categoria
-        $app->delete('/{id}', function ( $id) use ($app) {
+        $categoriaControllerAPI->delete('/{id}', function ( $id) use ($app) {
 
             if ($app['categoriaService']->deleteCategoria($id)) {
                 return $app->json([

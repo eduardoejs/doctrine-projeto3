@@ -13,7 +13,7 @@ class CategoriaController implements ControllerProviderInterface{
 
         //////////////////////////////////////////////////////////
         //Rota para a lista de categorias
-        $app->get('/categorias', function() use($app){
+        $categoriaController->get('/', function() use($app){
             $categorias = $app['categoriaService']->listCategorias();
             return $app['twig']->render('listCategorias.twig',['categorias' => $categorias]);
         })->bind('categorias');

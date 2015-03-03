@@ -18,13 +18,13 @@ class ProdutoAPI implements ControllerProviderInterface{
         $produtoControllerAPI = $app['controllers_factory'];
 
         //API para listar todos os produtos
-        $app->get('/', function() use($app){
+        $produtoControllerAPI->get('/', function() use($app){
             $dados = $app['produtoService']->listProdutos();
             return $app->json($dados);
         })->bind('API-ListProdutos');
 
         //API para listar 1 registro apenas
-        $app->get('/{id}', function($id) use($app){
+        $produtoControllerAPI->get('/{id}', function($id) use($app){
             $dados = $app['produtoService']->listProdutoById($id);
             if($dados){
                 return $app->json($dados);
@@ -34,7 +34,7 @@ class ProdutoAPI implements ControllerProviderInterface{
         })->bind('API-ListProdutosID');
 
         //API para inserir novo registro
-        $app->post('/', function(Request $request) use($app){
+        $produtoControllerAPI->post('/', function(Request $request) use($app){
             $dados['nome'] = $request->get('nome');
             $dados['descricao'] = $request->get('descricao');
             $dados['valor'] = $request->get('valor');
@@ -47,7 +47,7 @@ class ProdutoAPI implements ControllerProviderInterface{
         })->bind('API-InsertProdutos');
 
         //API para alterar um registro
-        $app->put('/{id}', function($id, Request $request) use($app){
+        $produtoControllerAPI->put('/{id}', function($id, Request $request) use($app){
             $dados['id'] =  $id;
             $dados['nome'] = $request->request->get('nome');
             $dados['descricao'] = $request->request->get('descricao');
@@ -61,7 +61,7 @@ class ProdutoAPI implements ControllerProviderInterface{
         })->bind('API-UpdateProdutos');
 
         //API para remover um registro
-        $app->delete('/{id}', function($id) use($app){
+        $produtoControllerAPI->delete('/{id}', function($id) use($app){
 
             $dados = $app['produtoService']->listProdutoById($id);
 

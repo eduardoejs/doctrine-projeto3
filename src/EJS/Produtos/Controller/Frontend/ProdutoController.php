@@ -17,7 +17,7 @@ class ProdutoController implements ControllerProviderInterface {
         $produtoController = $app['controllers_factory'];
 
         //Rota: index(listagem de produtos)
-        $app->get('/', function() use ($app){
+        $produtoController->get('/', function() use ($app){
             //return $app['twig']->render('index.twig', []);
             $pagina = 1;
             $produtos = $app['produtoService']->paginacao(5, $pagina);
@@ -25,7 +25,7 @@ class ProdutoController implements ControllerProviderInterface {
         })->bind('index');
 
         //Rota: listar produto por ID
-        $app->get('/produto/view/{id}', function($id) use($app){
+        $produtoController->get('/view/{id}', function($id) use($app){
             $produto = new Produto();
             $data['nome'] = $produto->getNome();
             $data['descricao'] = $produto->getDescricao();
@@ -37,14 +37,14 @@ class ProdutoController implements ControllerProviderInterface {
         })->bind('visualizar');
 
         //Rota para o formulário de insert
-        $app->get('/produto/novo', function() use($app){
+        $produtoController->get('/novo', function() use($app){
             $categorias = $app['categoriaService']->listCategorias();
             $tags = $app['tagService']->listTags();
             return $app['twig']->render('novo.twig',['categorias' => $categorias, 'tags' => $tags]);
         })->bind('novo');
 
         //Rota: após pegar dados do formulário insere no banco de dados
-        $app->post('/inserir', function(Request $request) use($app){
+        $produtoController->post('/inserir', function(Request $request) use($app){
             $data = $request->request->all();
             $produto = new Produto();
             $produto->setNome($data['nome']);
@@ -55,12 +55,12 @@ class ProdutoController implements ControllerProviderInterface {
         })->bind('inserir');
 
         //Rota: mensagem de sucesso ao inserir novo registro [utilizar no metodo redirect->generate]
-        $app->get('/sucesso', function () use ($app) {
+        $produtoController->get('/sucesso', function () use ($app) {
             return $app['twig']->render('sucesso.twig', []);
         })->bind("sucesso");
 
         //Rota: formulário de alteração
-        $app->get('/produto/alterar/{id}', function($id) use($app){
+        $produtoController->get('/produto/alterar/{id}', function($id) use($app){
             $produto = new Produto();
             $data['nome'] = $produto->getNome();
             $data['descricao'] = $produto->getDescricao();
@@ -71,7 +71,7 @@ class ProdutoController implements ControllerProviderInterface {
         })->bind('alterar');
 
         //Rota para alterar registro
-        $app->post('/alterar', function(Request $request) use($app){
+        $produtoController->post('/alterar', function(Request $request) use($app){
             $data = $request->request->all();
             $produto = new Produto();
             $produto->setNome($data['nome']);
@@ -84,7 +84,7 @@ class ProdutoController implements ControllerProviderInterface {
         })->bind('update');
 
         //Rota para excluir registro
-        $app->get('/produto/delete/{id}', function($id) use($app){
+        $produtoController->get('/delete/{id}', function($id) use($app){
             if($app['produtoService']->deleteProduto($id)){
                 return $app->redirect($app['url_generator']->generate('index'));
             }else{
@@ -93,13 +93,13 @@ class ProdutoController implements ControllerProviderInterface {
         })->bind('excluir');
 
         //rota para paginacao
-        $app->get('/produtosPaginado/{pagina}', function($pagina) use($app){
+        $produtoController->get('/produtosPaginado/{pagina}', function($pagina) use($app){
             $produtos = $app['produtoService']->paginacao(5, $pagina);
             return $app['twig']->render('conteudo.twig', ['produtos' => $produtos, 'data' => $produtos->count()]);
         })->bind('listar_produtos_paginado');
 
         //rota para pesquisar um produto
-        $app->post('/produto/pesquisar', function(Request $request) use($app){
+        $produtoController->post('/pesquisar', function(Request $request) use($app){
 
             $data = $request->request->all();
 
