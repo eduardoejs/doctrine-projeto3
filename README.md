@@ -17,11 +17,11 @@ http://127.0.0.1:8080/fixtures.php
 
 >4.1. *Para acessar as API REST de PRODUTOS*
 
-> LISTAR (requisição GET): <span style="">http://127.0.0.1:8080/api/produtos</span>
+> LISTAR (requisição GET): <span style="">http://127.0.0.1:8080/api/produtos/</span>
 
 > LISTAR POR ID (requisição GET): <span style="">http://127.0.0.1:8080/api/produtos/1</span>
 
-> INSERIR (requisição POST): <span style="">http://127.0.0.1:8080/api/produtos</span>
+> INSERIR (requisição POST): <span style="">http://127.0.0.1:8080/api/produtos/</span>
 
 > ALTERAR (requisição PUT): <span style="">http://127.0.0.1:8080/api/produtos/1</span>
 
@@ -29,11 +29,11 @@ http://127.0.0.1:8080/fixtures.php
 
 >4.2. *Para acessar as API REST de CATEGORIAS*
 
-> LISTAR (requisição GET): <span style="">http://127.0.0.1:8080/api/categoria</span>
+> LISTAR (requisição GET): <span style="">http://127.0.0.1:8080/api/categoria/</span>
 
 > LISTAR POR ID (requisição GET): <span style="">http://127.0.0.1:8080/api/categoria/1</span>
 
-> INSERIR (requisição POST): <span style="">http://127.0.0.1:8080/api/categoria</span>
+> INSERIR (requisição POST): <span style="">http://127.0.0.1:8080/api/categoria/</span>
 
 > ALTERAR (requisição PUT): <span style="">http://127.0.0.1:8080/api/categoria/1</span>
 
@@ -41,11 +41,11 @@ http://127.0.0.1:8080/fixtures.php
 
 >4.3. *Para acessar as API REST de TAGs*
 
-> LISTAR (requisição GET): <span style="">http://127.0.0.1:8080/api/tag</span>
+> LISTAR (requisição GET): <span style="">http://127.0.0.1:8080/api/tag/</span>
 
 > LISTAR POR ID (requisição GET): <span style="">http://127.0.0.1:8080/api/tag/1</span>
 
-> INSERIR (requisição POST): <span style="">http://127.0.0.1:8080/api/tag</span>
+> INSERIR (requisição POST): <span style="">http://127.0.0.1:8080/api/tag/</span>
 
 > ALTERAR (requisição PUT): <span style="">http://127.0.0.1:8080/api/tag/1</span>
 

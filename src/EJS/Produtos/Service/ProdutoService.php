@@ -5,6 +5,7 @@ namespace EJS\Produtos\Service;
 use Doctrine\ORM\EntityManager;
 use EJS\Produtos\Entity\Categoria;
 use EJS\Produtos\Entity\Produto as ProdutoEntity;
+use EJS\Produtos\Validator\ProdutoValidator;
 
 class ProdutoService {
 
@@ -59,13 +60,16 @@ class ProdutoService {
         $produtoEntity->setDescricao($data['descricao']);
         $produtoEntity->setValor($data['valor']);
 
+        $categoria = $this->em->getRepository("EJS\Produtos\Entity\Categoria")->findOneBy(['id' => $data['categoria_produto']]);
+        $produtoEntity->setCategoria($categoria);
 
-        if(is_numeric($data['categoria_produto'])){
-            $categoria = $this->em->getRepository("EJS\Produtos\Entity\Categoria")->findOneBy(['id' => $data['categoria_produto']]);
-            $produtoEntity->setCategoria($categoria);
+
+        foreach($data['tags_produto'] as $tag){
+            $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
+            $produtoEntity->addTags($tag);
         }
 
-        if(is_array($data['tags_produto'])){
+        /*if(is_array($data['tags_produto'])){
             if(count($data['tags_produto'])){
                 foreach($data['tags_produto'] as $tag){
                     $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
@@ -80,18 +84,20 @@ class ProdutoService {
                     $produtoEntity->addTags($tag);
                 }
             }
-        }
+        }*/
 
-        if(empty($data['nome']) or empty($data['descricao']) or empty($data['valor'])){
-            return ["STATUS" => "Erro: Você deve informar todos os valores"];
-        }elseif(!is_numeric($data['valor'])){
-            return ["STATUS" => "O formato do campo Valor está incorreto. (Não use vírgula)"];
-        }
-        else{
-            $this->em->persist($produtoEntity);
-            $this->em->flush();
+
+
+        $validador = new ProdutoValidator($produtoEntity);
+        $erros = $validador->validate();
+        if(is_array($erros)){
+            return ["ERROS ENCONTRADOS" => $erros];
+        }else{
+            //$this->em->persist($produtoEntity);
+            //$this->em->flush();
             return ["STATUS" => "Registro cadastrado com sucesso"];
         }
+
     }
 
     public function alterarProduto($data){
