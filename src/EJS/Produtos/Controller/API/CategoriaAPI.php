@@ -39,15 +39,8 @@ class CategoriaAPI implements ControllerProviderInterface{
             $categoria = new Categoria();
             $categoria->setNomeCategoria($data['nome_categoria']);
 
-            if ( $app['categoriaService']->insertCategoria($data)) {
-                return $app->json([
-                    'SUCCESS' => true
-                ]);
-            } else {
-                return $app->json([
-                    "SUCCESS" => false
-                ]);
-            }
+            $result = $app['categoriaService']->insertCategoria($data);
+            return $app->json($result);
         })->bind('API-InsertCategorias');
 
         //update categoria
@@ -56,15 +49,8 @@ class CategoriaAPI implements ControllerProviderInterface{
             $data['id'] =  $id;
             $data['nome_categoria'] = $request->request->get('nome_categoria');
 
-            if ($app['categoriaService']->updateCategoria($data, $id)) {
-                return $app->json([
-                    "SUCCESS" => true
-                ]);
-            } else {
-                return $app->json([
-                    "SUCCESS" => false
-                ]);
-            }
+            $result = $app['categoriaService']->updateCategoria($data, $id);
+            return $app->json($result);
 
         })->bind('API-UpdateCategorias');
 

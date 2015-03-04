@@ -24,18 +24,17 @@ class ProdutoValidator {
         if($this->produto->getDescricao() == "")
             $erros[] = ["Campo Descricao" => "O Descricao do produto deve ser informado"];
 
-
         if(!is_numeric($this->produto->getValor()))
             $erros[] = ["Campo Valor" => "O Valor do produto não está em um formato válido"];
 
-        if(!is_numeric($this->produto->getCategoria()))
-            $erros[] = ["Campo Categoria" => "A Categoria do produto não está em um formato válido"];
+        if(!is_numeric($this->produto->getCategoria()->getId()))
+            $erros[] = ["Campo Categoria" => "A Categoria do produto não foi informada"];
 
 
-        if(!is_array($this->produto->getTags())){
+        if(count($this->produto->getTags()->toArray())==0){
+            $erros[] = ["Campo Tags" => "Nenhuma Tag foi informada"];
 
         }
-
 
         if(count($erros))
             return $erros;

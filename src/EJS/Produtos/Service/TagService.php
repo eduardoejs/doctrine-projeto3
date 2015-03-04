@@ -4,6 +4,8 @@ namespace EJS\Produtos\Service;
 
 use Doctrine\ORM\EntityManager;
 use EJS\Produtos\Entity\Tag;
+use EJS\Produtos\Serializer\TagSerializer;
+use EJS\Produtos\Validator\TagValidator;
 
 class TagService {
 
@@ -19,11 +21,8 @@ class TagService {
         $tags = array();
         foreach($result as $tag)
         {
-            $t = array();
-            $t['id'] = $tag->getId();
-            $t['nome_tag'] = $tag->getNome();
-
-            $tags[] = $t;
+            $serializer = new TagSerializer($tag);
+            $tags[] = $serializer->serialize();
         }
         return $tags;
     }
@@ -34,8 +33,8 @@ class TagService {
         if($result != null)
         {
             $tag = array();
-            $tag['id'] = $result->getId();
-            $tag['nome_tag'] = $result->getNome();
+            $serializer = new TagSerializer($result);
+            $tag = $serializer->serialize();
 
             return $tag;
         }
@@ -48,18 +47,34 @@ class TagService {
         $tag = new Tag();
         $tag->setNome($data['nome_tag']);
 
-        $this->em->persist($tag);
-        $this->em->flush();
-        return $tag;
+        $validador = new TagValidator($tag);
+        $erros = $validador->validate();
+
+        if(is_array($erros)){
+            return ["ERROS ENCONTRADOS" => $erros];
+        }else{
+            $this->em->persist($tag);
+            $this->em->flush();
+            return ["STATUS" => "Registro cadastrado com sucesso"];
+        }
+
     }
 
     public function updateTag($data, $id){
+
         $tag = $this->em->getReference('EJS\Produtos\Entity\Tag', $id);
         $tag->setNome($data['nome_tag']);
 
-        $this->em->persist($tag);
-        $this->em->flush();
-        return $tag;
+        $validador = new TagValidator($tag);
+        $erros = $validador->validate();
+
+        if(is_array($erros)){
+            return ["ERROS ENCONTRADOS" => $erros];
+        }else{
+            $this->em->persist($tag);
+            $this->em->flush();
+            return ["STATUS" => "Registro alterado com sucesso"];
+        }
     }
 
     public function deleteTag($id){

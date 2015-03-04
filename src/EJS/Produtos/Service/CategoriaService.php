@@ -4,6 +4,8 @@ namespace EJS\Produtos\Service;
 
 use Doctrine\ORM\EntityManager;
 use EJS\Produtos\Entity\Categoria as CategoriaProdutos;
+use EJS\Produtos\Serializer\CategoriaSerializer;
+use EJS\Produtos\Validator\CategoriaValidator;
 
 class CategoriaService {
 
@@ -19,11 +21,8 @@ class CategoriaService {
         $categorias = array();
         foreach($result as $categoria)
         {
-            $c = array();
-            $c['id'] = $categoria->getId();
-            $c['nome_categoria'] = $categoria->getNomeCategoria();
-
-            $categorias[] = $c;
+            $serializer = new CategoriaSerializer($categoria);
+            $categorias[] = $serializer->serialize();
         }
         return $categorias;
     }
@@ -34,8 +33,9 @@ class CategoriaService {
         if($result != null)
         {
             $categoria = array();
-            $categoria['id'] = $result->getId();
-            $categoria['nome_categoria'] = $result->getNomeCategoria();
+
+            $serializer = new CategoriaSerializer($result);
+            $categoria = $serializer->serialize();
 
             return $categoria;
         }
@@ -48,18 +48,33 @@ class CategoriaService {
         $categoria = new CategoriaProdutos();
         $categoria->setNomeCategoria($data['nome_categoria']);
 
-        $this->em->persist($categoria);
-        $this->em->flush();
-        return $categoria;
+        $validador = new CategoriaValidator($categoria);
+        $erros = $validador->validate();
+
+        if(is_array($erros)){
+            return ["ERROS ENCONTRADOS" => $erros];
+        }else{
+            $this->em->persist($categoria);
+            $this->em->flush();
+            return ["STATUS" => "Registro cadastrado com sucesso"];
+        }
     }
 
     public function updateCategoria($data, $id){
+
         $categoria = $this->em->getReference('EJS\Produtos\Entity\Categoria', $id);
         $categoria->setNomeCategoria($data['nome_categoria']);
 
-        $this->em->persist($categoria);
-        $this->em->flush();
-        return $categoria;
+        $validador = new CategoriaValidator($categoria);
+        $erros = $validador->validate();
+
+        if(is_array($erros)){
+            return ["ERROS ENCONTRADOS" => $erros];
+        }else{
+            $this->em->persist($categoria);
+            $this->em->flush();
+            return ["STATUS" => "Registro alterado com sucesso"];
+        }
     }
 
     public function deleteCategoria($id){

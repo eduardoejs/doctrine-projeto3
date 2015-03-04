@@ -5,6 +5,7 @@ namespace EJS\Produtos\Service;
 use Doctrine\ORM\EntityManager;
 use EJS\Produtos\Entity\Categoria;
 use EJS\Produtos\Entity\Produto as ProdutoEntity;
+use EJS\Produtos\Serializer\ProdutoSerializer;
 use EJS\Produtos\Validator\ProdutoValidator;
 
 class ProdutoService {
@@ -24,13 +25,8 @@ class ProdutoService {
         $produtos = array();
         foreach($result as $produto)
         {
-            $p = array();
-            $p['id'] = $produto->getId();
-            $p['nome'] = $produto->getNome();
-            $p['descricao'] = $produto->getDescricao();
-            $p['valor'] = $produto->getValor();
-
-            $produtos[] = $p;
+            $serializer = new ProdutoSerializer($produto);
+            $produtos[] = $serializer->serialize();
         }
         return $produtos;
     }
@@ -42,10 +38,10 @@ class ProdutoService {
         if($result != null)
         {
             $produto = array();
-            $produto['id'] = $result->getId();
-            $produto['nome'] = $result->getNome();
-            $produto['descricao'] = $result->getDescricao();
-            $produto['valor'] = $result->getValor();
+
+            $serializer = new ProdutoSerializer($result);
+            $produto = $serializer->serialize();
+
             return $produto;
         }
         else{
@@ -63,13 +59,7 @@ class ProdutoService {
         $categoria = $this->em->getRepository("EJS\Produtos\Entity\Categoria")->findOneBy(['id' => $data['categoria_produto']]);
         $produtoEntity->setCategoria($categoria);
 
-
-        foreach($data['tags_produto'] as $tag){
-            $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
-            $produtoEntity->addTags($tag);
-        }
-
-        /*if(is_array($data['tags_produto'])){
+        if(is_array($data['tags_produto'])){
             if(count($data['tags_produto'])){
                 foreach($data['tags_produto'] as $tag){
                     $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
@@ -84,17 +74,17 @@ class ProdutoService {
                     $produtoEntity->addTags($tag);
                 }
             }
-        }*/
-
+        }
 
 
         $validador = new ProdutoValidator($produtoEntity);
         $erros = $validador->validate();
+
         if(is_array($erros)){
             return ["ERROS ENCONTRADOS" => $erros];
         }else{
-            //$this->em->persist($produtoEntity);
-            //$this->em->flush();
+            $this->em->persist($produtoEntity);
+            $this->em->flush();
             return ["STATUS" => "Registro cadastrado com sucesso"];
         }
 
@@ -118,6 +108,7 @@ class ProdutoService {
 
         if(is_array($data['tags_produto'])){
             if(count($data['tags_produto'])){
+                $produto->getTags()->clear();
                 foreach($data['tags_produto'] as $tag){
                     $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
                     $produto->addTags($tag);
@@ -126,6 +117,7 @@ class ProdutoService {
         }else{
             $tags = explode(',', $data['tags_produto']);
             if(count($data['tags_produto'])){
+                $produto->getTags()->clear();
                 foreach($tags as $tag){
                     $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
                     $produto->addTags($tag);
@@ -133,13 +125,13 @@ class ProdutoService {
             }
         }
 
-        if(empty($data['nome']) or empty($data['descricao']) or empty($data['valor'])){
-            return ["STATUS" => "Erro: Você deve informar todos os valores"];
-        }elseif(!is_numeric($data['valor'])){
-            return ["STATUS" => "O formato do campo Valor está incorreto. (Não use vírgula)"];
-        }
-        else{
-            //$this->em->persist($produto);
+        $validador = new ProdutoValidator($produto);
+        $erros = $validador->validate();
+
+        if(is_array($erros)){
+            return ["ERROS ENCONTRADOS" => $erros];
+        }else{
+            $this->em->persist($produto);
             $this->em->flush();
             return ["STATUS" => "Registro alterado com sucesso"];
         }

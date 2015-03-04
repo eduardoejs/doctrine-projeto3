@@ -39,15 +39,8 @@ class TagAPI implements ControllerProviderInterface{
             $tag = new Tag();
             $tag->setNome($data['nome_tag']);
 
-            if ( $app['tagService']->insertTag($data)) {
-                return $app->json([
-                    'SUCCESS' => true
-                ]);
-            } else {
-                return $app->json([
-                    "SUCCESS" => false
-                ]);
-            }
+            $result = $app['tagService']->insertTag($data);
+            return $app->json($result);
         })->bind('API-InsertTags');
 
         //update tag
@@ -56,15 +49,8 @@ class TagAPI implements ControllerProviderInterface{
             $data['id'] =  $id;
             $data['nome_tag'] = $request->request->get('nome_tag');
 
-            if ($app['tagService']->updateTag($data, $id)) {
-                return $app->json([
-                    "SUCCESS" => true
-                ]);
-            } else {
-                return $app->json([
-                    "SUCCESS" => false
-                ]);
-            }
+            $result = $app['tagService']->updateTag($data, $id);
+            return $app->json($result);
         })->bind('API-UpdateTags');
 
         //delete tag
