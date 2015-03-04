@@ -81,7 +81,7 @@ class ProdutoService {
         $erros = $validador->validate();
 
         if(is_array($erros)){
-            return ["ERROS ENCONTRADOS" => $erros];
+            return ["ERROS_ENCONTRADOS" => $erros];
         }else{
             $this->em->persist($produtoEntity);
             $this->em->flush();
@@ -129,7 +129,7 @@ class ProdutoService {
         $erros = $validador->validate();
 
         if(is_array($erros)){
-            return ["ERROS ENCONTRADOS" => $erros];
+            return ["ERROS_ENCONTRADOS" => $erros];
         }else{
             $this->em->persist($produto);
             $this->em->flush();

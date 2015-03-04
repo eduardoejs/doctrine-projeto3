@@ -21,9 +21,9 @@
                     <td>{{ tag.id }}</td>
                     <td>{{ tag.nome_tag }}</td>
 
-                    <td style="width: 10px;"><a href="#"><button class="btn btn-primary btn-xs disabled" type="submit" name="visualizar" >Visualizar</button></a></td>
-                    <td style="width: 10px;"><a href="#"><button class="btn btn-warning btn-xs disabled" type="submit" name="alterar" >Alterar</button></a></td>
-                    <td style="width: 10px;"><a href="#"><button class="btn btn-danger btn-xs disabled" type="submit" name="deletar">Deletar</button></a></td>
+                    <td style="width: 10px;"><a href="{{ path('viewTag', {id:tag.id}) }}"><button class="btn btn-primary btn-xs" type="submit" name="visualizar" >Visualizar</button></a></td>
+                    <td style="width: 10px;"><a href="{{ path('formTag', {id:tag.id}) }}"><button class="btn btn-warning btn-xs" type="submit" name="alterar" >Alterar</button></a></td>
+                    <td style="width: 10px;"><a href="{{ path('excluirTag', {id:tag.id}) }}"><button class="btn btn-danger btn-xs" type="submit" name="deletar">Deletar</button></a></td>
                 </tr>
             {% endfor %}
             </tbody>

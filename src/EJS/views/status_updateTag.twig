@@ -1,0 +1,13 @@
+{% extends "layout.twig" %}
+{% block title %}Status{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        {% for erro in status %}
+            <h2>{{ erro }}</h2>
+        {% endfor %}
+
+        <a href="{{ path('alterar', {id:tag.id}) }}"><button class="btn btn-success " type="submit" name="voltar" >Voltar</button></a>
+        <a href="{{ path('tags') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista de Tags</button></a>
+    </div><!-- /jumbotron -->
+{% endblock %}

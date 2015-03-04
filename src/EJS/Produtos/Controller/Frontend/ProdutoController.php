@@ -2,6 +2,7 @@
 
 namespace EJS\Produtos\Controller\Frontend;
 
+use EJS\Produtos\Entity\Categoria;
 use EJS\Produtos\Entity\Produto;
 use Silex\Application;
 use Silex\ControllerProviderInterface;
@@ -67,7 +68,10 @@ class ProdutoController implements ControllerProviderInterface {
             $data['valor'] = $produto->getValor();
             $result = $app['produtoService']->listProdutoById($id);
 
-            return $app['twig']->render('alterar.twig', ['produto' => $result]);
+            $categorias = $app['categoriaService']->listCategorias();
+            $tags = $app['tagService']->listTags();
+
+            return $app['twig']->render('alterar.twig', ['produto' => $result, 'categorias' => $categorias, 'tags' => $tags]);
         })->bind('alterar');
 
         //Rota para alterar registro

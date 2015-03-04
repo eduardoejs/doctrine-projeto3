@@ -51,7 +51,7 @@ class TagService {
         $erros = $validador->validate();
 
         if(is_array($erros)){
-            return ["ERROS ENCONTRADOS" => $erros];
+            return ["ERROS_ENCONTRADOS" => $erros];
         }else{
             $this->em->persist($tag);
             $this->em->flush();
@@ -69,7 +69,7 @@ class TagService {
         $erros = $validador->validate();
 
         if(is_array($erros)){
-            return ["ERROS ENCONTRADOS" => $erros];
+            return ["ERROS_ENCONTRADOS" => $erros];
         }else{
             $this->em->persist($tag);
             $this->em->flush();

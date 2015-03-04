@@ -21,9 +21,9 @@
                     <td>{{ categoria.id }}</td>
                     <td>{{ categoria.nome_categoria }}</td>
 
-                    <td style="width: 10px;"><a href="#"><button class="btn btn-primary btn-xs disabled" type="submit" name="visualizar" >Visualizar</button></a></td>
-                    <td style="width: 10px;"><a href="#"><button class="btn btn-warning btn-xs disabled" type="submit" name="alterar" >Alterar</button></a></td>
-                    <td style="width: 10px;"><a href="#"><button class="btn btn-danger btn-xs disabled" type="submit" name="deletar">Deletar</button></a></td>
+                    <td style="width: 10px;"><a href="{{ path('viewCategoria', {id:categoria.id}) }}"><button class="btn btn-primary btn-xs" type="submit" name="visualizar" >Visualizar</button></a></td>
+                    <td style="width: 10px;"><a href="{{ path('formCategoria', {id:categoria.id}) }}"><button class="btn btn-warning btn-xs" type="submit" name="alterar" >Alterar</button></a></td>
+                    <td style="width: 10px;"><a href="{{ path('excluirCateg', {id:categoria.id}) }}"><button class="btn btn-danger btn-xs" type="submit" name="deletar">Deletar</button></a></td>
                 </tr>
             {% endfor %}
             </tbody>

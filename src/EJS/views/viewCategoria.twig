@@ -1,0 +1,22 @@
+{% extends "layout.twig" %}
+{% block local %}Visualizar categoria{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ categoria.id }}</td>
+                <td>{{ categoria.nome_categoria }}</td>
+
+            </tbody>
+        </table>
+        <a href="{{ path('categorias') }}"><button class="btn btn-warning " type="submit" name="voltar" >Voltar para lista de categorias</button></a>
+    </div><!-- /jumbotron -->
+{% endblock %}

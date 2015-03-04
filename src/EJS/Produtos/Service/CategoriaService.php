@@ -52,7 +52,7 @@ class CategoriaService {
         $erros = $validador->validate();
 
         if(is_array($erros)){
-            return ["ERROS ENCONTRADOS" => $erros];
+            return ["ERROS_ENCONTRADOS" => $erros];
         }else{
             $this->em->persist($categoria);
             $this->em->flush();
@@ -69,7 +69,7 @@ class CategoriaService {
         $erros = $validador->validate();
 
         if(is_array($erros)){
-            return ["ERROS ENCONTRADOS" => $erros];
+            return ["ERROS_ENCONTRADOS" => $erros];
         }else{
             $this->em->persist($categoria);
             $this->em->flush();

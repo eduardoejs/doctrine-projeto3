@@ -10,6 +10,8 @@
                 <th>NOME</th>
                 <th>DESCRIÇÃO</th>
                 <th>VALOR</th>
+                <th>CATEGORIA</th>
+                <th>TAGs</th>
             </tr>
             </thead>
             <tbody>
@@ -17,7 +19,14 @@
                 <td>{{ produto.id }}</td>
                 <td>{{ produto.nome }}</td>
                 <td>{{ produto.descricao }}</td>
-                <td>{{ produto.valor }}</td></tr>
+                <td>{{ produto.valor }}</td>
+                <td>{{ produto.categoria.nome_categoria }}</td>
+                <td>
+                    {% for tag in produto.tags %}
+                        <li >{{ tag.nome_tag }}</li>
+                    {% endfor %}
+                </td>
+            </tr>
             </tbody>
         </table>
         <a href="{{ path('index') }}"><button class="btn btn-warning " type="submit" name="voltar" >Voltar para lista de produtos</button></a>

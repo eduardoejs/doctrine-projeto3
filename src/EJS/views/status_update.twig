@@ -3,6 +3,7 @@
 
 {% block content %}
     <div class="jumbotron">
+        <h2>{{ status.ERROS_ENCONTRADOS}}</h2>
         <h2>{{ status.STATUS}}</h2>
         <a href="{{ path('alterar', {id:produto.id}) }}"><button class="btn btn-success " type="submit" name="voltar" >Voltar</button></a>
         <a href="{{ path('index') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista de Produtos</button></a>

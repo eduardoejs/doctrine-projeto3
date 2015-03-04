@@ -11,8 +11,6 @@
                 <th>NOME</th>
                 <th>DESCRIÇÃO</th>
                 <th>VALOR</th>
-                <th>CATEGORIA</th>
-                <th>TAGs</th>
                 <th></th>
                 <th>AÇÕES</th>
             </tr>
@@ -22,11 +20,27 @@
                 <form action="{{ path('update', {id:produto.id}) }}" method="post">
                     <td>{{ produto.id }}</td>
 
-                    <td><input type="text" name="nome" value="{{ produto.nome }}"></td>
-                    <td><input type="text" name="descricao" value="{{ produto.descricao }}"></td>
-                    <td><input type="text" name="valor" value="{{ produto.valor }}"></td>
+                    <td style="width: 10px;"><input type="text" name="nome" value="{{ produto.nome }}"></td>
+                    <td style="width: 10px;"><input type="text" name="descricao" value="{{ produto.descricao }}"></td>
+                    <td style="width: 10px;"><input type="text" name="valor" value="{{ produto.valor }}"></td>
 
                     <td><button class="btn btn-success " type="submit" name="alterar" >Alterar</button></td>
+
+                    <td>
+                        <select class="form-control" name="categoria_produto" id="categoria_produto">
+                            {% for categoria in categorias %}
+                                <option value={{ categoria.id }}>{{ categoria.nome_categoria }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+
+                    <td>
+                        <select name="tags_produto[]" size="3" multiple="multiple" tabindex="1" style="width: 130px;">
+                            {% for tag in tags %}
+                                <option value={{ tag.id }}>{{ tag.nome_tag }}</option>
+                            {% endfor %}
+                        </select>
+                    <td>
                     <input type="hidden" name="id" value="{{ produto.id }}" />
                 </form>
             </tr>
