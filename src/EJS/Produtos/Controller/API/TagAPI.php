@@ -33,12 +33,7 @@ class TagAPI implements ControllerProviderInterface{
 
         //insert tag
         $tagControllerAPI->post('/', function (Request $request) use ($app) {
-
             $data = $request->request->all();
-
-            $tag = new Tag();
-            $tag->setNome($data['nome_tag']);
-
             $result = $app['tagService']->insertTag($data);
             return $app->json($result);
         })->bind('API-InsertTags');
@@ -46,9 +41,6 @@ class TagAPI implements ControllerProviderInterface{
         //update tag
         $tagControllerAPI->put('/{id}', function (Request $request, $id) use ($app) {
             $data = $request->request->all();
-            $data['id'] =  $id;
-            $data['nome_tag'] = $request->request->get('nome_tag');
-
             $result = $app['tagService']->updateTag($data, $id);
             return $app->json($result);
         })->bind('API-UpdateTags');

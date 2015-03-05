@@ -21,7 +21,6 @@ class CategoriaController implements ControllerProviderInterface{
         })->bind('categorias');
 
         $categoriaController->get('/view/{id}', function($id) use($app){
-
             $categoria = $app['categoriaService']->listCategoriaById($id);
             return $app['twig']->render('viewCategoria.twig',['categoria' => $categoria]);
         })->bind('viewCategoria');
@@ -34,9 +33,7 @@ class CategoriaController implements ControllerProviderInterface{
         $categoriaController->post('/alterar', function(Request $request) use($app){
             $data = $request->request->all();
             $categoria = new Categoria();
-            $categoria->setNomeCategoria($data['nome_categoria']);
             $categoria->setId($data['id']);
-
             $result = $app['categoriaService']->updateCategoria($data, $categoria->getId());
             return $app['twig']->render('status_updateCateg.twig', ['status' => $result, 'categoria' => $categoria]);
         })->bind('alterarCateg');

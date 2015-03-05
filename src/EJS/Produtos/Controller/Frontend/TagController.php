@@ -13,7 +13,6 @@ class TagController implements ControllerProviderInterface{
     {
         $tagController = $app['controllers_factory'];
 
-        /////////////////////////////////////////////////////////////////////
         //Rota para a lista de tags
         $tagController->get('/', function() use($app){
             $tags = $app['tagService']->listTags();
@@ -33,9 +32,7 @@ class TagController implements ControllerProviderInterface{
         $tagController->post('/alterar', function(Request $request) use($app){
             $data = $request->request->all();
             $tag = new Tag();
-            $tag->setNome($data['nome_tag']);
             $tag->setId($data['id']);
-
             $result = $app['tagService']->updateTag($data, $tag->getId());
             return $app['twig']->render('status_updateTag.twig', ['status' => $result, 'tag' => $tag]);
         })->bind('alterarTag');
@@ -47,7 +44,6 @@ class TagController implements ControllerProviderInterface{
                 $app->abort(500, "Erro ao excluir produto");
             }
         })->bind('excluirTag');
-
 
         return $tagController;
     }

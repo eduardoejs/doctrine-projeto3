@@ -35,6 +35,9 @@ class ProdutoAPI implements ControllerProviderInterface{
 
         //API para inserir novo registro
         $produtoControllerAPI->post('/', function(Request $request) use($app){
+
+            //Posso utilizar também: $dados = $request->request->all();
+            //Mas teria que alterar no nome dos índices, deixei como exemplo
             $dados['nome'] = $request->get('nome');
             $dados['descricao'] = $request->get('descricao');
             $dados['valor'] = $request->get('valor');

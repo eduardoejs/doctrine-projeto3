@@ -23,22 +23,13 @@ class CategoriaAPI implements ControllerProviderInterface{
 
         //retorna uma categoria
         $categoriaControllerAPI->get('/{id}', function ($id) use ($app) {
-            $categoria = new Categoria();
-            $data['nome_categoria'] = $categoria->getNomeCategoria();
-
             $data = $app['categoriaService']->listCategoriaById($id);
-
             return $app->json($data);
         })->bind('API-ListCategoriasID');
 
         //insert categoria
         $categoriaControllerAPI->post('/', function (Request $request) use ($app) {
-
             $data = $request->request->all();
-
-            $categoria = new Categoria();
-            $categoria->setNomeCategoria($data['nome_categoria']);
-
             $result = $app['categoriaService']->insertCategoria($data);
             return $app->json($result);
         })->bind('API-InsertCategorias');
@@ -46,9 +37,6 @@ class CategoriaAPI implements ControllerProviderInterface{
         //update categoria
         $categoriaControllerAPI->put('/{id}', function (Request $request, $id) use ($app) {
             $data = $request->request->all();
-            $data['id'] =  $id;
-            $data['nome_categoria'] = $request->request->get('nome_categoria');
-
             $result = $app['categoriaService']->updateCategoria($data, $id);
             return $app->json($result);
 
