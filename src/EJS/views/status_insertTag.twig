@@ -1,0 +1,19 @@
+{% extends "layout.twig" %}
+{% block title %}Status{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+
+        {% if msg.ERROS is defined %}
+            <h1>Tem erros</h1>
+            {% for erros in msg.ERROS %}
+                <h3>{{ erros.Campo }}</h3>
+            {% endfor %}
+        {% elseif msg.OK is defined %}
+            <h1>Tudo OK!</h1>
+        {% endif %}
+
+        <a href="{{ path('novaTag') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastrar Nova Tag</button></a>
+        <a href="{{ path('tags') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista de Tags</button></a>
+    </div><!-- /jumbotron -->
+{% endblock %}

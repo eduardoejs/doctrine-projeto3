@@ -45,6 +45,17 @@ class TagController implements ControllerProviderInterface{
             }
         })->bind('excluirTag');
 
+        $tagController->get('/novo', function() use($app){
+            return $app['twig']->render('formTagInsert.twig',[]);
+        })->bind('novaTag');
+
+        //Rota: após pegar dados do formulário insere no banco de dados
+        $tagController->post('/inserir', function(Request $request) use($app){
+            $data = $request->request->all();
+            $result = $app['tagService']->insertTag($data);
+            return $app['twig']->render('status_insertTag.twig', ['msg' => $result]);
+        })->bind('inserirTag');
+
         return $tagController;
     }
 } 

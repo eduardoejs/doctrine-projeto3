@@ -52,11 +52,11 @@ class CategoriaService {
         $erros = $validador->validate();
 
         if(is_array($erros)){
-            return ["ERROS_ENCONTRADOS" => $erros];
+            return ["ERROS" => $erros];
         }else{
             $this->em->persist($categoria);
             $this->em->flush();
-            return ["STATUS" => "Registro cadastrado com sucesso"];
+            return ["OK" => "Registro cadastrado com sucesso"];
         }
     }
 
@@ -69,11 +69,11 @@ class CategoriaService {
         $erros = $validador->validate();
 
         if(is_array($erros)){
-            return ["ERROS_ENCONTRADOS" => $erros];
+            return ["ERROS" => $erros];
         }else{
             $this->em->persist($categoria);
             $this->em->flush();
-            return ["STATUS" => "Registro alterado com sucesso"];
+            return ["OK" => "Registro alterado com sucesso"];
         }
     }
 

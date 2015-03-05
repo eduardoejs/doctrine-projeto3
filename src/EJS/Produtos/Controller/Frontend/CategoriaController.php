@@ -46,6 +46,17 @@ class CategoriaController implements ControllerProviderInterface{
             }
         })->bind('excluirCateg');
 
+        $categoriaController->get('/novo', function() use($app){
+            return $app['twig']->render('formCategoriaInsert.twig',[]);
+        })->bind('novaCateg');
+
+        //Rota: após pegar dados do formulário insere no banco de dados
+        $categoriaController->post('/inserir', function(Request $request) use($app){
+            $data = $request->request->all();
+            $result = $app['categoriaService']->insertCategoria($data);
+            return $app['twig']->render('status_insertCateg.twig', ['msg' => $result]);
+        })->bind('inserirCateg');
+
         return $categoriaController;
     }
 } 

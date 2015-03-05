@@ -3,7 +3,6 @@
 {% block content %}
     <div class="jumbotron">
 
-        <a href="{{ url('novo') }}"><button class="btn btn-success " type="submit" name="cadastra" >Cadastar Novo Produto</button></a>
         <a href="{{ url('categorias') }}"><button class="btn btn-info " type="submit" name="listCategorias" >Lista de Categorias</button></a>
         <a href="{{ url('tags') }}"><button class="btn btn-info " type="submit" name="listCategorias" >Lista de Tags</button></a>
         <a href="{{ url('index') }}"><button class="btn btn-info " type="submit" name="listCategorias" >Lista de Produtos</button></a>
@@ -28,6 +27,9 @@
             {% endfor %}
             </tbody>
         </table>
+        <a href="{{ url('novo') }}"><button class="btn btn-success " type="submit" name="cadastra" >Cadastrar Novo Produto</button></a>
+        <a href="{{ url('novaCateg') }}"><button class="btn btn-success " type="submit" name="cadastra" >Cadastrar Nova Categoria</button></a>
+        <a href="{{ url('novaTag') }}"><button class="btn btn-success " type="submit" name="cadastra" >Cadastrar Nova Tag</button></a>
 
     </div><!-- /jumbotron -->
 {% endblock %}

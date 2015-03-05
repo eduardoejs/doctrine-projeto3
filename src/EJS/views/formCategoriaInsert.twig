@@ -1,0 +1,26 @@
+{% extends "layout.twig" %}
+{% block local %}Inserir categoria{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>NOME</th>
+                <th></th>
+                <th>AÇÕES</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <form action="{{ path('inserirCateg') }}" method="post">
+                    <td><input type="text" name="nome_categoria" value=""></td>
+                    <td><button class="btn btn-success " type="submit" name="inserirCateg" >Cadastrar</button></td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+        <a href="{{ path('categorias') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
+    </div><!-- /jumbotron -->
+{% endblock %}
