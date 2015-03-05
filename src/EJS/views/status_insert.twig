@@ -4,6 +4,15 @@
 {% block content %}
     <div class="jumbotron">
 
+        {% if msg.ERROS is defined %}
+            <h1>Tem erros</h1>
+            {% for erros in msg.ERROS %}
+                <h3>{{ erros.Campo }}</h3>
+            {% endfor %}
+        {% elseif msg.OK is defined %}
+            <h1>Tudo OK!</h1>
+        {% endif %}
+
         <a href="{{ path('novo') }}"><button class="btn btn-success " type="submit" name="voltar" >Cadastrar Novo Produto</button></a>
         <a href="{{ path('index') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar para Lista de Produtos</button></a>
     </div><!-- /jumbotron -->

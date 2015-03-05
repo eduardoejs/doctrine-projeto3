@@ -58,33 +58,34 @@ class ProdutoService {
         $categoria = $this->em->getRepository("EJS\Produtos\Entity\Categoria")->findOneBy(['id' => $data['categoria_produto']]);
         $produtoEntity->setCategoria($categoria);
 
-        if(is_array($data['tags_produto'])){
-            if(count($data['tags_produto'])){
-                foreach($data['tags_produto'] as $tag){
-                    $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
-                    $produtoEntity->addTags($tag);
+        if(isset($data['tags_produto'])){
+            if(is_array($data['tags_produto'])){
+                if(count($data['tags_produto'])){
+                    foreach($data['tags_produto'] as $tag){
+                        $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
+                        $produtoEntity->addTags($tag);
+                    }
                 }
-            }
-        }else{
-            $tags = explode(',', $data['tags_produto']);
-            if(count($data['tags_produto'])){
-                foreach($tags as $tag){
-                    $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
-                    $produtoEntity->addTags($tag);
+            }else{
+                $tags = explode(',', $data['tags_produto']);
+                if(count($data['tags_produto'])){
+                    foreach($tags as $tag){
+                        $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
+                        $produtoEntity->addTags($tag);
+                    }
                 }
             }
         }
-
 
         $validador = new ProdutoValidator($produtoEntity);
         $erros = $validador->validate();
 
         if(is_array($erros)){
-            return ["ERROS_ENCONTRADOS" => $erros];
+            return ["ERROS" => $erros];
         }else{
             $this->em->persist($produtoEntity);
             $this->em->flush();
-            return ["STATUS" => "Registro cadastrado com sucesso"];
+            return ["OK" => "Registro cadastrado com sucesso"];
         }
 
     }

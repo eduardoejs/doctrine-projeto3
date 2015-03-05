@@ -52,7 +52,7 @@ class ProdutoController implements ControllerProviderInterface {
             $produto->setValor($data['valor']);
 
             $result = $app['produtoService']->insertProduto($data);
-            return $app['twig']->render('status_insert.twig', ['status' => $result]);
+            return $app['twig']->render('status_insert.twig', ['msg' => $result]);
         })->bind('inserir');
 
         //Rota: mensagem de sucesso ao inserir novo registro [utilizar no metodo redirect->generate]

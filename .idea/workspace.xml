@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea0336a3-8eb6-41b7-818f-8757ec858ace" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/Produtos/Serializer/CategoriaSerializer.php" afterPath="$PROJECT_DIR$/src/EJS/Produtos/Serializer/CategoriaSerializer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/Produtos/Validator/CategoriaValidator.php" afterPath="$PROJECT_DIR$/src/EJS/Produtos/Validator/CategoriaValidator.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/Produtos/Controller/Frontend/ProdutoController.php" afterPath="$PROJECT_DIR$/src/EJS/Produtos/Controller/Frontend/ProdutoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/Produtos/Serializer/ProdutoSerializer.php" afterPath="$PROJECT_DIR$/src/EJS/Produtos/Serializer/ProdutoSerializer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php" afterPath="$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/Produtos/Validator/ProdutoValidator.php" afterPath="$PROJECT_DIR$/src/EJS/Produtos/Validator/ProdutoValidator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/Produtos/Validator/TagValidator.php" afterPath="$PROJECT_DIR$/src/EJS/Produtos/Validator/TagValidator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/views/alterar.twig" afterPath="$PROJECT_DIR$/src/EJS/views/alterar.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/views/conteudo.twig" afterPath="$PROJECT_DIR$/src/EJS/views/conteudo.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/views/pesquisa_produtos.twig" afterPath="$PROJECT_DIR$/src/EJS/views/pesquisa_produtos.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/views/status_insert.twig" afterPath="$PROJECT_DIR$/src/EJS/views/status_insert.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/views/status_update.twig" afterPath="$PROJECT_DIR$/src/EJS/views/status_update.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EJS/views/visualizar.twig" afterPath="$PROJECT_DIR$/src/EJS/views/visualizar.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="projeto01.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ProdutoController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProdutoController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Controller/Frontend/ProdutoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.166666" vertical-offset="758" max-vertical-offset="1950">
-              <caret line="86" column="67" selection-start-line="86" selection-start-column="67" selection-end-line="86" selection-end-column="67" />
+            <state vertical-scroll-proportion="0.1769158" vertical-offset="623" max-vertical-offset="1950">
+              <caret line="54" column="67" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
               <folding>
                 <element signature="e#52#86#0#PHP" expanded="true" />
               </folding>
@@ -55,31 +44,17 @@
       <file leaf-file-name="ProdutoService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.291667" vertical-offset="1298" max-vertical-offset="2355">
-              <caret line="107" column="16" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
+            <state vertical-scroll-proportion="-20.291666" vertical-offset="758" max-vertical-offset="2370">
+              <caret line="87" column="23" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProdutoRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Entity/ProdutoRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.125" vertical-offset="0" max-vertical-offset="810">
-              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-              <folding>
-                <marker date="1425404853718" expanded="true" signature="487:551" placeholder="SELECT p FRO..EJS..." />
-                <marker date="1425404853718" expanded="true" signature="736:812" placeholder="SELECT p FRO..EJS..." />
-                <marker date="1425404853718" expanded="true" signature="1074:1117" placeholder="SELECT p FRO..EJS..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pesquisa_produtos.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pesquisa_produtos.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EJS/views/pesquisa_produtos.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38793105" vertical-offset="0" max-vertical-offset="1044">
+            <state vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="855">
               <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
               <folding />
             </state>
@@ -99,8 +74,8 @@
       <file leaf-file-name="status_update.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EJS/views/status_update.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="360">
-              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+            <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="360">
+              <caret line="13" column="19" selection-start-line="6" selection-start-column="8" selection-end-line="13" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -119,8 +94,8 @@
       <file leaf-file-name="status_insert.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EJS/views/status_insert.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="225">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="360">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -164,16 +139,16 @@
         <option value="$PROJECT_DIR$/src/EJS/views/conteudo.twig" />
         <option value="$PROJECT_DIR$/src/EJS/Produtos/Serializer/CategoriaSerializer.php" />
         <option value="$PROJECT_DIR$/src/EJS/Produtos/Serializer/ProdutoSerializer.php" />
-        <option value="$PROJECT_DIR$/src/EJS/views/status_insert.twig" />
         <option value="$PROJECT_DIR$/src/EJS/views/alterar.twig" />
-        <option value="$PROJECT_DIR$/src/EJS/Produtos/Controller/Frontend/ProdutoController.php" />
         <option value="$PROJECT_DIR$/src/EJS/views/status_update.twig" />
-        <option value="$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php" />
         <option value="$PROJECT_DIR$/src/EJS/views/visualizar.twig" />
         <option value="$PROJECT_DIR$/src/EJS/Produtos/Validator/TagValidator.php" />
         <option value="$PROJECT_DIR$/src/EJS/Produtos/Validator/CategoriaValidator.php" />
         <option value="$PROJECT_DIR$/src/EJS/Produtos/Validator/ProdutoValidator.php" />
         <option value="$PROJECT_DIR$/src/EJS/views/pesquisa_produtos.twig" />
+        <option value="$PROJECT_DIR$/src/EJS/views/status_insert.twig" />
+        <option value="$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php" />
+        <option value="$PROJECT_DIR$/src/EJS/Produtos/Controller/Frontend/ProdutoController.php" />
       </list>
     </option>
   </component>
@@ -839,22 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJS/views/status_insert.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="225">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJS/views/status_update.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="360">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Validator/TagValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="540">
@@ -887,41 +846,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Controller/Frontend/ProdutoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.166666" vertical-offset="758" max-vertical-offset="1950">
-          <caret line="86" column="67" selection-start-line="86" selection-start-column="67" selection-end-line="86" selection-end-column="67" />
-          <folding>
-            <element signature="e#52#86#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.291667" vertical-offset="1298" max-vertical-offset="2355">
-          <caret line="107" column="16" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Entity/ProdutoRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.125" vertical-offset="0" max-vertical-offset="810">
           <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
           <folding>
-            <marker date="1425404853718" expanded="true" signature="487:551" placeholder="SELECT p FRO..EJS..." />
-            <marker date="1425404853718" expanded="true" signature="736:812" placeholder="SELECT p FRO..EJS..." />
-            <marker date="1425404853718" expanded="true" signature="1074:1117" placeholder="SELECT p FRO..EJS..." />
+            <marker date="1425404853718" expanded="true" signature="-1:-1" placeholder="SELECT p FRO..EJS..." />
+            <marker date="1425404853718" expanded="true" signature="-1:-1" placeholder="SELECT p FRO..EJS..." />
+            <marker date="1425404853718" expanded="true" signature="-1:-1" placeholder="SELECT p FRO..EJS..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EJS/views/pesquisa_produtos.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38793105" vertical-offset="0" max-vertical-offset="1044">
+        <state vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="855">
           <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJS/views/status_update.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="360">
+          <caret line="13" column="19" selection-start-line="6" selection-start-column="8" selection-end-line="13" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJS/views/status_insert.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="360">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Service/ProdutoService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.291666" vertical-offset="758" max-vertical-offset="2370">
+          <caret line="87" column="23" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EJS/Produtos/Controller/Frontend/ProdutoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1769158" vertical-offset="623" max-vertical-offset="1950">
+          <caret line="54" column="67" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
+          <folding>
+            <element signature="e#52#86#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
