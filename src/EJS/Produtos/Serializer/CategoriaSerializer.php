@@ -10,14 +10,21 @@ class CategoriaSerializer {
     private $categoria;
     public function __construct(Categoria $categoria)
     {
-        $this->categoria = $categoria;
+        if(isset($categoria)){
+            $this->categoria = $categoria;
+        }
+        else{
+            $this->categoria = null;
+        }
     }
 
     public function serialize()
     {
-        $categoria['id'] = $this->categoria->getId();
-        $categoria["nome_categoria"] = $this->categoria->getNomeCategoria();
-
+        $categoria = null;
+        if(!is_null($this->categoria)){
+            $categoria['id'] = $this->categoria->getId();
+            $categoria["nome_categoria"] = $this->categoria->getNomeCategoria();
+        }
 
         return $categoria;
     }

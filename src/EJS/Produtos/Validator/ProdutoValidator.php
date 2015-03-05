@@ -19,20 +19,20 @@ class ProdutoValidator {
         //retornar um objeto em array
 
         if($this->produto->getNome() == "")
-            $erros[] = ["Campo Nome" => "O Nome do produto deve ser informado"];
+            $erros[] = ["Campo" => "O Nome do produto deve ser informado"];
 
         if($this->produto->getDescricao() == "")
-            $erros[] = ["Campo Descricao" => "O Descricao do produto deve ser informado"];
+            $erros[] = ["Campo" => "O Descricao do produto deve ser informado"];
 
         if(!is_numeric($this->produto->getValor()))
-            $erros[] = ["Campo Valor" => "O Valor do produto não está em um formato válido"];
+            $erros[] = ["Campo" => "O Valor do produto não está em um formato válido"];
 
         if(!is_numeric($this->produto->getCategoria()->getId()))
-            $erros[] = ["Campo Categoria" => "A Categoria do produto não foi informada"];
+            $erros[] = ["Campo" => "A Categoria do produto não foi informada"];
 
 
-        if(count($this->produto->getTags()->toArray())==0){
-            $erros[] = ["Campo Tags" => "Nenhuma Tag foi informada"];
+        if(count($this->produto->getTags()->toArray())==0 or is_null($this->produto->getTags())){
+            $erros[] = ["Campo" => "Nenhuma Tag foi informada"];
 
         }
 

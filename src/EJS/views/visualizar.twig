@@ -20,12 +20,21 @@
                 <td>{{ produto.nome }}</td>
                 <td>{{ produto.descricao }}</td>
                 <td>{{ produto.valor }}</td>
-                <td>{{ produto.categoria.nome_categoria }}</td>
-                <td>
-                    {% for tag in produto.tags %}
-                        <li >{{ tag.nome_tag }}</li>
-                    {% endfor %}
-                </td>
+                {% if produto.categoria.nome_categoria is defined %}
+                    <td>{{ produto.categoria.nome_categoria }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+
+
+                {% if produto.tags is defined %}
+                    <td>
+                        {% for tag in produto.tags %}
+                            <li >{{ tag.nome_tag }}</li>
+                        {% endfor %}
+                    </td>
+                {% endif %}
+
             </tr>
             </tbody>
         </table>

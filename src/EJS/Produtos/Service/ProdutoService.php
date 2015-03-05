@@ -19,8 +19,8 @@ class ProdutoService {
     public function listProdutos()
     {
         $repository = $this->em->getRepository("EJS\Produtos\Entity\Produto");
-        //$result = $repository->findAll();
-        $result = $repository->getProdutosOrdenados();
+        $result = $repository->findAll();
+        //$result = $repository->getProdutosOrdenados();
 
         $produtos = array();
         foreach($result as $produto)
@@ -37,7 +37,6 @@ class ProdutoService {
 
         if($result != null)
         {
-            $produto = array();
 
             $serializer = new ProdutoSerializer($result);
             $produto = $serializer->serialize();
@@ -106,21 +105,23 @@ class ProdutoService {
 
         }
 
-        if(is_array($data['tags_produto'])){
-            if(count($data['tags_produto'])){
-                $produto->getTags()->clear();
-                foreach($data['tags_produto'] as $tag){
-                    $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
-                    $produto->addTags($tag);
+        if(isset($data['tags_produto'])){
+            if(is_array($data['tags_produto'])){
+                if(count($data['tags_produto'])){
+                    $produto->getTags()->clear();
+                    foreach($data['tags_produto'] as $tag){
+                        $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
+                        $produto->addTags($tag);
+                    }
                 }
-            }
-        }else{
-            $tags = explode(',', $data['tags_produto']);
-            if(count($data['tags_produto'])){
-                $produto->getTags()->clear();
-                foreach($tags as $tag){
-                    $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
-                    $produto->addTags($tag);
+            }else{
+                $tags = explode(',', $data['tags_produto']);
+                if(count($data['tags_produto'])){
+                    $produto->getTags()->clear();
+                    foreach($tags as $tag){
+                        $tag = $this->em->getReference("EJS\Produtos\Entity\Tag", $tag);
+                        $produto->addTags($tag);
+                    }
                 }
             }
         }
@@ -129,11 +130,11 @@ class ProdutoService {
         $erros = $validador->validate();
 
         if(is_array($erros)){
-            return ["ERROS_ENCONTRADOS" => $erros];
+            return ["ERROS" => $erros];
         }else{
             $this->em->persist($produto);
             $this->em->flush();
-            return ["STATUS" => "Registro alterado com sucesso"];
+            return ["OK" => "Registro alterado com sucesso"];
         }
     }
 

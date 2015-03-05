@@ -19,8 +19,12 @@ class ProdutoSerializer {
         $produto["descricao"] = $this->produto->getDescricao();
         $produto["valor"] = $this->produto->getValor();
 
-        $categoriaSerializer = new CategoriaSerializer($this->produto->getCategoria());
-        $produto['categoria'] = $categoriaSerializer->serialize();
+        if(!is_null($this->produto->getCategoria())) {
+            $categoriaSerializer = new CategoriaSerializer($this->produto->getCategoria());
+            $produto['categoria'] = $categoriaSerializer->serialize();
+        }else{
+            $produto['categoria'] = null;
+        }
 
         $tags = $this->produto->getTags();
         foreach($tags as $tag){

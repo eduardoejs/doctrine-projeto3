@@ -26,7 +26,11 @@
                     <td>{{ produto.nome }}</td>
                     <td>{{ produto.descricao }}</td>
                     <td>{{ produto.valor }}</td>
-                    <td>{{ produto.categoria.nomecategoria }}</td>
+                    {% if produto.categoria.nomecategoria is defined %}
+                        <td>{{ produto.categoria.nomecategoria }}</td>
+                        {% else %}
+                        <td></td>
+                    {% endif %}
                     <td>
                         {% for tag in produto.tags %}
                             <li >{{ tag.nome }}</li>

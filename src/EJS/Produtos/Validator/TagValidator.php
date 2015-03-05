@@ -20,7 +20,7 @@ class TagValidator {
 
 
         if ($this->tag->getNome() == "")
-            $erros[] = ["Campo Nome" => "O Nome da Tag deve ser informado"];
+            $erros[] = ["Campo" => "O Nome da Tag deve ser informado"];
 
 
         if (count($erros))

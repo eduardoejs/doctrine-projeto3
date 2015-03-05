@@ -10,6 +10,10 @@
                 <th>NOME</th>
                 <th>DESCRIÇÃO</th>
                 <th>VALOR</th>
+                <th>CATEGORIA</th>
+                <th>TAGs</th>
+                <th></th>
+                <th>AÇÕES</th>
             </tr>
             </thead>
             <tbody>
@@ -20,6 +24,20 @@
                     <td>{{ produto.nome }}</td>
                     <td>{{ produto.descricao }}</td>
                     <td>{{ produto.valor }}</td>
+                    {% if produto.categoria.nomecategoria is defined %}
+                        <td>{{ produto.categoria.nomecategoria }}</td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+
+
+                    {% if produto.tags is defined %}
+                        <td>
+                            {% for tag in produto.tags %}
+                                <li >{{ tag.nome }}</li>
+                            {% endfor %}
+                        </td>
+                    {% endif %}
 
                     <td><a href="{{ path('visualizar', {id:produto.id}) }}"><button class="btn btn-primary " type="submit" name="visualizar" >Visualizar</button></a></td>
                     <td><a href="{{ path('alterar', {id:produto.id}) }}"><button class="btn btn-warning" type="submit" name="alterar" >Alterar</button></a></td>

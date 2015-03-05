@@ -19,7 +19,7 @@ class CategoriaValidator {
 
 
         if($this->categoria->getNomeCategoria() == "")
-            $erros[] = ["Campo Nome" => "O Nome da Categoria deve ser informado"];
+            $erros[] = ["Campo" => "O Nome da Categoria deve ser informado"];
 
 
         if(count($erros))

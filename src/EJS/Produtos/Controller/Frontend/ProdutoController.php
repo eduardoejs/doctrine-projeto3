@@ -61,7 +61,7 @@ class ProdutoController implements ControllerProviderInterface {
         })->bind("sucesso");
 
         //Rota: formulário de alteração
-        $produtoController->get('/produto/alterar/{id}', function($id) use($app){
+        $produtoController->get('/alterar/{id}', function($id) use($app){
             $produto = new Produto();
             $data['nome'] = $produto->getNome();
             $data['descricao'] = $produto->getDescricao();
@@ -84,7 +84,7 @@ class ProdutoController implements ControllerProviderInterface {
             $produto->setId($data['id']);
 
             $result = $app['produtoService']->alterarProduto($data);
-            return $app['twig']->render('status_update.twig', ['status' => $result, 'produto' => $produto]);
+            return $app['twig']->render('status_update.twig', ['msg' => $result, 'produto' => $produto]);
         })->bind('update');
 
         //Rota para excluir registro

@@ -11,6 +11,8 @@
                 <th>NOME</th>
                 <th>DESCRIÇÃO</th>
                 <th>VALOR</th>
+                <th>CATEGORIA</th>
+                <th>TAGs</th>
                 <th></th>
                 <th>AÇÕES</th>
             </tr>
@@ -23,8 +25,6 @@
                     <td style="width: 10px;"><input type="text" name="nome" value="{{ produto.nome }}"></td>
                     <td style="width: 10px;"><input type="text" name="descricao" value="{{ produto.descricao }}"></td>
                     <td style="width: 10px;"><input type="text" name="valor" value="{{ produto.valor }}"></td>
-
-                    <td><button class="btn btn-success " type="submit" name="alterar" >Alterar</button></td>
 
                     <td>
                         <select class="form-control" name="categoria_produto" id="categoria_produto">
@@ -41,6 +41,7 @@
                             {% endfor %}
                         </select>
                     <td>
+                    <td><button class="btn btn-success " type="submit" name="alterar" >Alterar</button></td>
                     <input type="hidden" name="id" value="{{ produto.id }}" />
                 </form>
             </tr>
