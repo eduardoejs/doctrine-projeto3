@@ -84,8 +84,16 @@ class Produto {
         return $this->path;
     }
 
-    public function setFile(UploadedFile $file = null){
+    public function setFile(UploadedFile $file){
+
         $this->file = $file;
+
+        if(!null !== $this->path){
+            $this->path = $this->getUploadRootDir().'no-image.jpg';
+        }else{
+            $this->path = null;
+        }
+        $this->path = null;
     }
 
     /**

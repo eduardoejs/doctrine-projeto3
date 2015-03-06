@@ -132,8 +132,7 @@ class ProdutoService {
         }
 
         if($data['file'] != null){
-            $produtoTemp = $this->em->getRepository("EJS\Produtos\Entity\Produto")->find($produto->getId());
-            self::removeImage($produtoTemp);
+            self::removeImage($produto);
             $produto->setFile($data['file']);
         }
 
