@@ -41,6 +41,8 @@
         </table>
         {% if produto.file != null %}
             <img src="/uploads/images/{{ produto.file }}"/>
+            {% else %}
+                <img src="/uploads/images/no-image.jpg"/>
         {% endif %}
 
     </div><!-- /jumbotron -->

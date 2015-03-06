@@ -89,8 +89,10 @@ class Produto {
         $this->file = $file;
 
         if(!null !== $this->path){
+            //imagem não existe, então coloco uma imagem padrão
             $this->path = $this->getUploadRootDir().'no-image.jpg';
         }else{
+            //imagem já existe, vamos alterar, por isso apaga o caminho
             $this->path = null;
         }
         $this->path = null;
