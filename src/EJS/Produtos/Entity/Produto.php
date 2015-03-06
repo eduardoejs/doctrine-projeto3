@@ -4,10 +4,13 @@ namespace EJS\Produtos\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use EJS\Produtos\Service\ProdutoService;
 
-/** *
+/**
  * @ORM\Entity(repositoryClass="EJS\Produtos\Entity\ProdutoRepository")
  * @ORM\Table(name="produtos")
+ * @ORM\HasLifecycleCallbacks
  */
 class Produto {
 
@@ -48,10 +51,72 @@ class Produto {
      */
     private $tags;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $path;
+
+    private $file;
+
     function __construct()
     {
         $this->tags = new ArrayCollection();
     }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function createPath(){
+        if(!is_null($this->file)){
+            $this->path = ProdutoService::uploadImage($this);
+        }
+    }
+
+    /**
+     * @ORM\PreRemove
+     */
+    public function removePath(){
+        return ProdutoService::removeImage($this);
+    }
+
+    public function getPath(){
+        return $this->path;
+    }
+
+    public function setFile(UploadedFile $file = null){
+        $this->file = $file;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile(){
+        return $this->file;
+    }
+
+    public function getAbsolutePath(){
+        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
+    }
+
+    public function getWebPath(){
+        return null === $this->path ? null : $this->getUploadDir().'/'.$this->path;
+    }
+
+    public function getUploadRootDir(){
+        return __DIR__.'/../../../../public/'.$this->getUploadDir();
+    }
+
+    public function getUploadDir(){
+        return 'uploads/images';
+    }
+
+    public function getUploadAcceptedTypes(){
+        return array('jpg','jpeg','png', 'gif');
+    }
+
 
     /**
      * @param mixed $categoria

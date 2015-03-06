@@ -3,6 +3,7 @@
 
 {% block content %}
     <div class="jumbotron">
+        <a href="{{ path('index') }}"><button class="btn btn-warning " type="submit" name="voltar" >Voltar para lista de produtos</button></a>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -38,6 +39,9 @@
             </tr>
             </tbody>
         </table>
-        <a href="{{ path('index') }}"><button class="btn btn-warning " type="submit" name="voltar" >Voltar para lista de produtos</button></a>
+        {% if produto.path != null %}
+            <img src="/uploads/images/{{ produto.path }}"/>
+        {% endif %}
+
     </div><!-- /jumbotron -->
 {% endblock %}

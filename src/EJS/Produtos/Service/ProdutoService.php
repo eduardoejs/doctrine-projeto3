@@ -5,8 +5,10 @@ namespace EJS\Produtos\Service;
 use Doctrine\ORM\EntityManager;
 use EJS\Produtos\Entity\Categoria;
 use EJS\Produtos\Entity\Produto as ProdutoEntity;
+use EJS\Produtos\Entity\Produto;
 use EJS\Produtos\Serializer\ProdutoSerializer;
 use EJS\Produtos\Validator\ProdutoValidator;
+use Psr\Log\InvalidArgumentException;
 
 class ProdutoService {
 
@@ -77,6 +79,8 @@ class ProdutoService {
             }
         }
 
+        $produtoEntity->setFile($data['path']);
+
         $validador = new ProdutoValidator($produtoEntity);
         $erros = $validador->validate();
 
@@ -127,6 +131,12 @@ class ProdutoService {
             }
         }
 
+        if($data['path'] != null){
+            $produtoTemp = $this->em->getRepository("EJS\Produtos\Entity\Produto")->find($produto->getId());
+            self::removeImage($produtoTemp);
+            $produto->setFile($data['path']);
+        }
+
         $validador = new ProdutoValidator($produto);
         $erros = $validador->validate();
 
@@ -153,5 +163,35 @@ class ProdutoService {
 
     public function paginacao($qtdePaginas, $paginaAtual){
         return $this->em->getRepository("EJS\Produtos\Entity\Produto")->paginarRegistros($qtdePaginas, $paginaAtual);
+    }
+
+    static public function uploadImage(Produto $produto){
+
+        if(null === $produto->getFile()){
+            return;
+        }
+
+        if(!in_array($produto->getFile()->getClientOriginalExtension(), $produto->getUploadAcceptedTypes())){
+            throw new InvalidArgumentException("Tipo de arquivo inválido");
+        }
+
+        $filename = sha1($produto->getFile()->getClientOriginalName().date('Y-m-d H:i:s')).'.'.$produto->getFile()->getClientOriginalExtension();
+
+        $produto->getFile()->move($produto->getUploadRootDir(), $filename);
+
+        return $filename;
+
+    }
+
+    static public function removeImage(Produto $produto){
+
+        if(null === $produto->getPath()){
+            return;
+        }
+
+        if(file_exists($produto->getAbsolutePath()))
+            unlink($produto->getAbsolutePath());
+
+        return true;
     }
 }

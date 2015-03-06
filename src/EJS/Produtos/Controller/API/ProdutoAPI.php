@@ -44,6 +44,7 @@ class ProdutoAPI implements ControllerProviderInterface{
 
             $dados['categoria_produto'] = $request->get('categoria');
             $dados['tags_produto'] = $request->get('tags');
+            $dados['path'] = $request->get('path');
 
             $result = $app['produtoService']->insertProduto($dados);
             return $app->json($result);
@@ -58,6 +59,7 @@ class ProdutoAPI implements ControllerProviderInterface{
 
             $dados['categoria_produto'] = $request->request->get('categoria');
             $dados['tags_produto'] = $request->request->get('tags');
+            $dados['path'] = $request->request->get('path');
 
             $result = $app['produtoService']->alterarProduto($dados);
             return $app->json($result);

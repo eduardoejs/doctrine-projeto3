@@ -32,6 +32,8 @@ class ProdutoSerializer {
             $produto["tags"][] = $tagSerialize->serialize();
         }
 
+        $produto['path'] = $this->produto->getPath();
+
         return $produto;
     }
 }

@@ -41,6 +41,7 @@ class ProdutoController implements ControllerProviderInterface {
         //Rota: após pegar dados do formulário insere no banco de dados
         $produtoController->post('/inserir', function(Request $request) use($app){
             $data = $request->request->all();
+            $data['path'] = $request->files->get('path');
             $result = $app['produtoService']->insertProduto($data);
             return $app['twig']->render('status_insert.twig', ['msg' => $result]);
         })->bind('inserir');
@@ -61,6 +62,7 @@ class ProdutoController implements ControllerProviderInterface {
         //Rota para alterar registro
         $produtoController->post('/alterar', function(Request $request) use($app){
             $data = $request->request->all();
+            $data['path'] = $request->files->get('path');
             $produto = new Produto();
             $produto->setId($data['id']);
             $result = $app['produtoService']->alterarProduto($data);

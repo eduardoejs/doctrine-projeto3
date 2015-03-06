@@ -4,49 +4,60 @@
 {% block content %}
     <div class="jumbotron">
 
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>DESCRIÇÃO</th>
-                <th>VALOR</th>
-                <th>CATEGORIA</th>
-                <th>TAGs</th>
-                <th></th>
-                <th>AÇÕES</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <form action="{{ path('update', {id:produto.id}) }}" method="post">
-                    <td>{{ produto.id }}</td>
+        <div class="row">
+            <div class="col-lg-12">
 
-                    <td style="width: 10px;"><input type="text" name="nome" value="{{ produto.nome }}"></td>
-                    <td style="width: 10px;"><input type="text" name="descricao" value="{{ produto.descricao }}"></td>
-                    <td style="width: 10px;"><input type="text" name="valor" value="{{ produto.valor }}"></td>
+                <form action="{{ path('update', {id:produto.id}) }}" method="post" class="form-horizontal" enctype="multipart/form-data">
 
-                    <td>
-                        <select class="form-control" name="categoria_produto" id="categoria_produto">
+                    <div class="form-group">
+                        <label>ID</label>
+                        <input type="text" name="id" class="form-control" value="{{ produto.id }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Nome do Produto</label>
+                        <input type="text" name="nome" class="form-control" required="required" value="{{ produto.nome }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Descrição do Produto</label>
+                        <input type="text" name="descricao" class="form-control" required="required" value="{{ produto.descricao }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Valor do Produto</label>
+                        <input type="text" name="valor" class="form-control" required="required" value="{{ produto.valor }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria</label>
+                        <select type="text" name="categoria_produto" class="form-control">
                             {% for categoria in categorias %}
-                                <option value={{ categoria.id }}>{{ categoria.nome_categoria }}</option>
+                                <option value="{{ categoria.id }}">{{ categoria.nome_categoria }}</option>
                             {% endfor %}
                         </select>
-                    </td>
-
-                    <td>
-                        <select name="tags_produto[]" size="3" multiple="multiple" tabindex="1" style="width: 130px;">
+                    </div>
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <select name="tags_produto[]" size="5" multiple="multiple" tabindex="1" style="width: 130px;">
                             {% for tag in tags %}
                                 <option value={{ tag.id }}>{{ tag.nome_tag }}</option>
                             {% endfor %}
                         </select>
-                    <td>
-                    <td><button class="btn btn-success " type="submit" name="alterar" >Alterar</button></td>
+                    </div>
+                    <div class="form-group">
+                        <label>Imagem</label>
+                        <input type="file" name="path" class="form-control">
+                    </div>
+
                     <input type="hidden" name="id" value="{{ produto.id }}" />
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Alterar</button>
+                        <a href="{{ path('index') }}"><button class="btn btn-info " type="button" name="voltar" >Voltar</button></a>
+                    </div>
+
                 </form>
-            </tr>
-            </tbody>
-        </table>
-        <a href="{{ path('index') }}"><button class="btn btn-info " type="submit" name="voltar" >Voltar</button></a>
+
+            </div>
+        </div>
+
+
     </div><!-- /jumbotron -->
 {% endblock %}

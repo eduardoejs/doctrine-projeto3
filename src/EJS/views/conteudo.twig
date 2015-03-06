@@ -14,7 +14,7 @@
                 <th>VALOR</th>
                 <th>CATEGORIA</th>
                 <th>TAGs</th>
-                <th></th>
+                <th>IMAGEM</th>
                 <th>AÇÕES</th>
             </tr>
             </thead>
@@ -36,6 +36,11 @@
                         {% endfor %}
                     </td>
 
+                    {% if produto.path %}
+                        <td>SIM</td>
+                    {% else %}
+                        <td>NÃO</td>
+                    {% endif %}
                     <td style="width: 10px;"><a href="{{ path('visualizar', {id:produto.id}) }}"><button class="btn btn-primary btn-xs" type="submit" name="visualizar" >Visualizar</button></a></td>
                     <td style="width: 10px;"><a href="{{ path('alterar', {id:produto.id}) }}"><button class="btn btn-warning btn-xs" type="submit" name="alterar" >Alterar</button></a></td>
                     <td style="width: 10px;"><a href="{{ path('excluir', {id:produto.id}) }}"><button class="btn btn-danger btn-xs" type="submit" name="deletar">Deletar</button></a></td>
