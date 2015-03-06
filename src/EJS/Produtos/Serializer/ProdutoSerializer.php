@@ -32,7 +32,7 @@ class ProdutoSerializer {
             $produto["tags"][] = $tagSerialize->serialize();
         }
 
-        $produto['path'] = $this->produto->getPath();
+        $produto['file'] = $this->produto->getPath();
 
         return $produto;
     }

@@ -79,7 +79,7 @@ class ProdutoService {
             }
         }
 
-        $produtoEntity->setFile($data['path']);
+        $produtoEntity->setFile($data['file']);
 
         $validador = new ProdutoValidator($produtoEntity);
         $erros = $validador->validate();
@@ -131,10 +131,10 @@ class ProdutoService {
             }
         }
 
-        if($data['path'] != null){
+        if($data['file'] != null){
             $produtoTemp = $this->em->getRepository("EJS\Produtos\Entity\Produto")->find($produto->getId());
             self::removeImage($produtoTemp);
-            $produto->setFile($data['path']);
+            $produto->setFile($data['file']);
         }
 
         $validador = new ProdutoValidator($produto);
